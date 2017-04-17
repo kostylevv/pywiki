@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Autonomicity blog{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1><a href="{{home}}"> Autonomicity wiki </a></h1>
+		
+		<hr>
+		
+			{% for post in posts %}
+				<div class = "post">
+					
+					<div class = "post-title"> <a href="{{post.key().id()}}" > {{post.subject}} </a></div>
+					<div class = "post-submitted"> {{post.submitted.strftime("%d/%m/%y")}}</div>
+					<pre>
+						{{post.content}} 
+					</pre>
+				</div>
+			{% endfor %}
+		<div> You've been here {{visits}} times</div>
+		<div> Queried {{diff}} seconds ago </div>
+{% endblock %}

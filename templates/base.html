@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% block head %}
+    <link rel="stylesheet" type="text/css" href="/styles/basic.css" />
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    <div class = "timestamp">
+    <a href="{{context_action}}">{{context_action_name}}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    {% if user %}
+        {{user.username}} <a href="{{logout}}"> Log out </a>
+    {% else %}
+        <a href="{{signup}}"> Sign up </a> or <a href="{{login}}"> Log in </a>
+    {% endif %}
+
+    {% endblock %}
+    <hr />
+    </div>
+</head>
+<body>
+    <br /><br />
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        <br /> <br />
+        &copy; <a href="http://wiki-164912.appspot.com">PyWiki</a>.
+        {% endblock %}
+    </div>
+</body>
